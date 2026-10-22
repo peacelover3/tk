@@ -1,10 +1,12 @@
 /* ============================================================
-   TK SON HALWA · Site data
+   TK SON HALWA · Site content
    ------------------------------------------------------------
-   Everything a small shop normally needs to edit lives in this
-   file: prices, names, photos, phone number, message template,
-   delivery line, hours, FAQ. Change the text between the
-   quotes and the whole site follows. No coding needed.
+   Most shop details live here: menu names, prices, photos,
+   phone numbers, opening hours and answers to common questions.
+
+   Edit only the text between the quotes. Keep the commas and
+   braces as they are, then save the file and refresh the page.
+   GUIDE.md explains every field in plain language.
    ============================================================ */
 
 window.TK = {
@@ -12,42 +14,42 @@ window.TK = {
   /* ---------- Brand ---------- */
   brand: {
     name: "TK SON HALWA",
-    kicker: "Soan halwa, Multani style"
+    kicker: "Multani style, made daily"
   },
 
   /* ---------- WhatsApp ordering ----------
-     The number below is in international format with no plus or
-     spaces so wa.me can use it. Display version is what humans
-     see. The message template: {name} and {price} are filled in
-     automatically. Change the words only if you must; keep the
-     {name} and {price} parts, or the order message breaks. */
+     whatsappTo: country code + number, digits only.
+     whatsappDisplay: the number shown to customers.
+     orderMessage: {name} and {price} are replaced automatically.
+     Keep those two placeholders exactly as they are. */
   whatsappTo: "923365505467",
   whatsappDisplay: "+92 336 5505467",
-  orderMessage: "Hello there, I wanted to order {name} from your website, it's {price} on website. Can I get more details on this?",
+  orderMessage: "Hello, I want to order {name} from the website. It is listed at {price} per kg. Please confirm availability and delivery.",
+  genericMessage: "Hello, I want to order TK SON HALWA. Please share the menu, prices and delivery details.",
 
-  /* ---------- Small print the visitor reads ----------
-     These lines are drafts: replace with your real wording. */
-  priceNote: "All prices are per kilogram, in Pakistani rupees. The final count is confirmed on WhatsApp before anything is packed.",
-  deliveryNote: "We deliver around our own area and nearby, and we agree on the exact charge in the chat. Address and date go on WhatsApp.",
-  shopHours: "Open daily, 9 in the morning till 9 at night",
-  standinNote: "Station photos for now: our own degh shots replace these through data.js.",
+  /* ---------- Small print ---------- */
+  priceNote: "All prices are per kilogram in Pakistani rupees. We confirm the final weight, delivery charge and total on WhatsApp before packing.",
+  deliveryNote: "We deliver in our area and nearby towns. The exact charge depends on your address, and we agree it in the chat before sending.",
+  shopHours: "Open daily, 9:00 am to 9:00 pm",
 
-  /* ---------- Hero facts (small caps line under the hero) ---------- */
+  /* ---------- Hero facts ---------- */
   heroFacts: [
     "Made every morning",
     "Sold by the kilo",
-    "Ordered in one chat"
+    "Order on WhatsApp"
   ],
 
-  /* ---------- The halwas (menu + detail pages) ----------
+  /* ---------- The halwas ----------
      price is per kilogram in PKR.
-     img points at the photo; the owner swaps the filename here. */
+     id must be unique and stay the same once links are shared.
+     img points to a file inside assets/img.
+     imgW and imgH must match the real photo size. */
   halwas: [
     {
       id: "walnut-soan",
       name: "Multani Walnut Soan",
-      short: "Thick walnut through every cut, the Multan-style disc.",
-      long: "The Multani-style disc: pulled thin, layered, and thick with walnut, finished in desi ghee so the flakes stay separate when it is cut. One degh of this goes out most mornings, and it sells while it is still warm.",
+      short: "A thick Multani-style disc with walnut in every cut.",
+      long: "We pull the soan thin, layer it, and finish it in desi ghee with plenty of walnut. It is made in small batches most mornings and is usually still warm when the first orders go out.",
       price: 1200,
       chips: ["Walnut", "Almond", "Desi ghee"],
       img: "assets/img/halwa-hero.jpg",
@@ -55,8 +57,8 @@ window.TK = {
       imgH: 1202,
       imgAlt: "Round walnut-topped soan halwa disc seen from above",
       specs: {
-        amounts: "Half kilo and one kilo packs; bigger orders by message.",
-        shelfLife: "Tastes best within a week of the pull. Keep it sealed, somewhere cool and dry.",
+        amounts: "Half-kilo and one-kilo packs. For larger orders, message us.",
+        shelfLife: "Tastes best within a week. Keep it sealed in a cool, dry place.",
         ingredients: "Wheat, sugar, desi ghee, walnut, almond.",
         packing: "Wrapped per half kilo, boxed for travel."
       }
@@ -64,17 +66,17 @@ window.TK = {
     {
       id: "pista-soan",
       name: "Pista Badam Soan",
-      short: "The wet-style one, glossy with pista and almond.",
-      long: "Cooked down until it stays slightly wet, then folded through with pista and almond. It looks different from dry soan papdi because it is: darker, glossier, and closer to the old Multan finish.",
+      short: "A softer, glossier soan with pista and almond folded through.",
+      long: "This one is cooked a little longer so it stays soft in the middle. Pista and almond go in at the end, which gives it the darker, glossier finish of the old Multan style.",
       price: 950,
-      chips: ["Pista", "Almond", "Wet style"],
+      chips: ["Pista", "Almond", "Soft set"],
       img: "assets/img/halwa-multani.jpg",
       imgW: 1400,
       imgH: 1062,
-      imgAlt: "Glossy soan piece dressed with pista and almond flakes",
+      imgAlt: "Glossy soan piece topped with pista and almond flakes",
       specs: {
-        amounts: "Half kilo and one kilo packs; bigger orders by message.",
-        shelfLife: "Tastes best within 4 to 5 days. Cool, dry place, sealed pack.",
+        amounts: "Half-kilo and one-kilo packs. For larger orders, message us.",
+        shelfLife: "Tastes best within four to five days. Keep it sealed and cool.",
         ingredients: "Wheat, sugar, desi ghee, pista, almond.",
         packing: "Wrapped per half kilo, boxed on request."
       }
@@ -82,8 +84,8 @@ window.TK = {
     {
       id: "classic-papdi",
       name: "Classic Soan Papdi",
-      short: "Everyday golden flakes, light and flaky, in half-kilo wraps.",
-      long: "The household one. Besan cooked into flakes, layered, and cut into squares. It pulls apart in threads the way you hope, and it stays light even after days.",
+      short: "Light, flaky golden squares for everyday tea.",
+      long: "Our everyday soan papdi. Gram flour is cooked into fine flakes, layered, and cut into squares. It stays light and crisp for days when kept sealed.",
       price: 500,
       chips: ["Besan", "Flaky", "Desi ghee"],
       img: "assets/img/halwa-papdi.jpg",
@@ -91,26 +93,26 @@ window.TK = {
       imgH: 909,
       imgAlt: "Golden flaky soan papdi squares with almond slivers",
       specs: {
-        amounts: "Half kilo and one kilo packs; bigger orders by message.",
-        shelfLife: "Sealed, it keeps about three weeks.",
-        ingredients: "Gram flour (besan), wheat, sugar, desi ghee.",
+        amounts: "Half-kilo and one-kilo packs. For larger orders, message us.",
+        shelfLife: "About three weeks in a sealed pack.",
+        ingredients: "Gram flour, wheat, sugar, desi ghee.",
         packing: "Wrapped per half kilo."
       }
     },
     {
       id: "cream-patisa",
       name: "Cream Patisa",
-      short: "Soft cream-coloured cubes with cardamom through the fold.",
-      long: "A softer bake beside the classic. Cream-coloured, cardamom folded through, cut into cubes that disappear on trays at offices and hospital visits.",
+      short: "Soft cream-coloured cubes with cardamom.",
+      long: "A softer bite next to the classic. The cubes are cream-coloured, lightly set, and finished with cardamom. They are a common choice for office trays and family visits.",
       price: 550,
       chips: ["Cardamom", "Soft bite"],
       img: "assets/img/halwa-papdi-plate.jpg",
       imgW: 1200,
       imgH: 800,
-      imgAlt: "Cream-coloured patisa cubes with cardamom served on a plate",
+      imgAlt: "Cream-coloured patisa cubes with cardamom on a plate",
       specs: {
-        amounts: "Half kilo and one kilo packs; bigger orders by message.",
-        shelfLife: "Sealed, it keeps about two weeks.",
+        amounts: "Half-kilo and one-kilo packs. For larger orders, message us.",
+        shelfLife: "About two weeks in a sealed pack.",
         ingredients: "Gram flour, sugar, desi ghee, cardamom.",
         packing: "Half-kilo folds in plain packs."
       }
@@ -118,156 +120,139 @@ window.TK = {
     {
       id: "chocolate-papdi",
       name: "Chocolate Soan Papdi",
-      short: "The flaky one with a cocoa fold, cashew on top.",
-      long: "Usual flaky layers with a cocoa fold worked through, cashew and raisin set on top. For the young cousins who skip mithai until chocolate is offered.",
+      short: "Flaky soan with cocoa, cashew and raisin.",
+      long: "The same flaky layers with cocoa worked through, then topped with cashew and raisin. It is the one children reach for first.",
       price: 700,
       chips: ["Cocoa", "Cashew", "Raisin"],
       img: "assets/img/halwa-chocolate.jpg",
-      imgW: 1280,
-      imgH: 853,
-      imgAlt: "Three soan papdi pieces: chocolate, yellow and cream with cashew",
+      imgW: 1070,
+      imgH: 590,
+      imgAlt: "Chocolate and cream soan papdi pieces with cashew and raisin",
       specs: {
-        amounts: "Half kilo and one kilo packs; bigger orders by message.",
-        shelfLife: "Sealed, it keeps about two weeks.",
+        amounts: "Half-kilo and one-kilo packs. For larger orders, message us.",
+        shelfLife: "About two weeks in a sealed pack.",
         ingredients: "Gram flour, sugar, desi ghee, cocoa, cashew, raisin.",
         packing: "Wrapped per half kilo."
       }
     }
   ],
 
-  /* ---------- Batch strip (morning to plate) ----------
-     Photos are stand-ins; swap the filenames when your own shots
-     are ready. Keep the captions close to what the photo shows. */
+  /* ---------- Batch strip ----------
+     Each item is one photo in the "From the copper degh" row.
+     Keep captions short and close to what the photo shows. */
   strip: [
     {
       n: "01",
       title: "Leaving the degh",
-      line: "Cooked down in ghee until it half glows.",
+      line: "Cooked slowly in desi ghee until it comes together.",
       img: "assets/img/halwa-multani.jpg",
-      imgAlt: "Glossy fresh soan dressed with dry fruit"
+      imgW: 1400,
+      imgH: 1062,
+      imgAlt: "Glossy fresh soan topped with dry fruit"
     },
     {
       n: "02",
       title: "Pulled into flakes",
-      line: "Layers pulled thin enough to hold light.",
+      line: "Layered and pulled thin enough to hold light.",
       img: "assets/img/halwa-papdi.jpg",
+      imgW: 1026,
+      imgH: 909,
       imgAlt: "Golden flaky soan layers close up"
     },
     {
       n: "03",
       title: "Cut for the tray",
-      line: "Blocks cut plain, cardamom through the fold.",
+      line: "Cut into squares and finished by hand.",
       img: "assets/img/halwa-papdi-plate.jpg",
-      imgAlt: "Cream patisa cubes cut and dressed on a plate"
+      imgW: 1200,
+      imgH: 800,
+      imgAlt: "Cream patisa cubes cut and arranged on a plate"
     },
     {
       n: "04",
-      title: "Priced per kilo",
-      line: "Weighed, wrapped, and the tag says what it costs.",
-      img: "assets/img/halwa-stack.jpg",
-      imgAlt: "Wrapped soan papdi blocks stacked at a counter with a per-kg price sign"
+      title: "Weighed and wrapped",
+      line: "Every order is weighed and packed fresh.",
+      img: "assets/img/halwa-hero.jpg",
+      imgW: 1200,
+      imgH: 1202,
+      imgAlt: "Fresh walnut soan halwa ready to be weighed and packed"
     }
   ],
 
-  /* ---------- How to order (four steps) ---------- */
+  /* ---------- How to order ---------- */
   steps: [
     {
       n: "01",
-      t: "Walk the price plate",
-      d: "Scroll the list above, pick your halwa and your kilo."
+      t: "Choose your halwa",
+      d: "Check the menu and note the quantity you need."
     },
     {
       n: "02",
-      t: "Tap order",
-      d: "WhatsApp opens with your choice already typed. Send it."
+      t: "Send a WhatsApp message",
+      d: "Tap Order and the message opens ready to send."
     },
     {
       n: "03",
-      t: "We confirm the count",
-      d: "Weight, delivery charge and total agreed in the chat."
+      t: "We confirm your order",
+      d: "We reply with the weight, delivery charge and total."
     },
     {
       n: "04",
-      t: "Halwa out the door",
-      d: "You pay when it arrives, cash or whatever we agreed."
+      t: "Receive your halwa",
+      d: "Pay cash on delivery, or as agreed in the chat."
     }
   ],
 
-  /* ---------- Customer lines (drafts: swap for real notes) ---------- */
-  quotes: [
-    {
-      q: "Walnut soan that tastes like the shops we remember from Multan, and it travels without falling apart.",
-      who: "Atif, regular customer"
-    },
-    {
-      q: "Five kilos for Eid, packed proper and delivered on time. The whole shop lives in one WhatsApp chat.",
-      who: "Sana, Eid order"
-    },
-    {
-      q: "The chocolate one never survives till morning.",
-      who: "Bilal, family dinners"
-    }
-  ],
-
-  /* ---------- FAQ ---------- */
+  /* ---------- FAQ ----------
+     An answer set to null is filled from the lines above. */
   faq: [
     {
-      q: "How fresh is the halwa I get?",
-      a: "The counter sells through the day's degh before anything sits overnight. Classic soan papdi keeps about three weeks in a sealed pack; the walnut and pista soan taste best inside the first week. Keep it somewhere cool and dry."
+      q: "How fresh is the halwa?",
+      a: "We make one batch each morning and sell it through the day. If it runs out, we take orders for the next morning. Keep the packs sealed in a cool, dry place."
     },
     {
       q: "Do you deliver, and what is the charge?",
-      a: null /* filled with deliveryNote below */
+      a: null
     },
     {
       q: "Can I order in bulk for Eid or a wedding?",
-      a: "Yes. Message the flavour, the number of kilos and the date. We confirm what the week's pulls can cover and quote you a total."
+      a: "Yes. Message us the flavour, the number of kilos and the date. We will confirm what we can make and give you a total."
     },
     {
       q: "How do I pay?",
-      a: "Cash on delivery is the usual. Anything else gets agreed on WhatsApp first."
+      a: "Cash on delivery is usual. If you want another arrangement, ask us on WhatsApp first."
     },
     {
-      q: "Can I visit the counter?",
-      a: null /* filled with shopHours below */
+      q: "Can I visit the shop?",
+      a: null
     }
   ],
 
   /* ---------- Story section ---------- */
   story: {
-    title: "The shop",
-    lead: "TK SON HALWA is a small family counter that keeps one copper degh of soan halwa going every morning. The recipe is Multani-style: the same pull, the same cut, the same price written per kilo.",
-    body: "Nothing waits in a cold store. If today's stock runs out, we say so and book you with the next morning's pull. That honesty is the whole shop.",
+    title: "Our shop",
+    lead: "TK SON HALWA is a family-run counter. We make Multani-style soan halwa in a copper degh each morning and sell it by the kilo.",
+    body: "We do not keep stock in cold storage. When the day's batch is finished, we take orders for the next morning. Message us and we will tell you what is ready.",
     board: [
       { k: "Degh", v: "one, copper" },
-      { k: "Batch", v: "before dawn" },
+      { k: "Batch", v: "every morning" },
       { k: "Sold by", v: "the kilo" },
-      { k: "Price", v: "printed, no games" },
-      { k: "Packing", v: "fresh wrap, boxes for travel" },
-      { k: "Stock", v: "whatever today's pull allows" }
+      { k: "Price", v: "set per kilo" },
+      { k: "Packing", v: "fresh wrap and boxes" },
+      { k: "Stock", v: "made fresh, sold same day" }
     ]
-  },
-
-  /* ---------- Photo credits (stand-ins) ----------
-     These open-license photos from Wikimedia Commons carry the
-     real orders until the owner's photos replace them. Keep the
-     credits visible while any stand-in is on the site. */
-  credits: [
-    { file: "halwa-hero.jpg", src: "Sohan Halwa.JPG", author: "Miansari66", license: "public domain", url: "https://commons.wikimedia.org/wiki/File:Sohan_Halwa.JPG" },
-    { file: "halwa-multani.jpg", src: "Multani-sohan-halwa.jpg", author: "Bhutta1984", license: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Multani-sohan-halwa.jpg" },
-    { file: "halwa-papdi.jpg", src: "Sohan papdi.jpg", author: "Pamri", license: "public domain", url: "https://commons.wikimedia.org/wiki/File:Sohan_papdi.jpg" },
-    { file: "halwa-papdi-plate.jpg", src: "Soan sohan papdi India Festive Sweets.jpg", author: "Abigail Batchelder", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Soan_sohan_papdi_India_Festive_Sweets.jpg" },
-    { file: "halwa-chocolate.jpg", src: "Chocolate and vanila Sohan Papdi.jpg", author: "Reshmi R S", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Chocolate_and_vanila_Sohan_Papdi.jpg" },
-    { file: "halwa-stack.jpg", src: "Sohan_papdi2.JPG", author: "Randhirreddy", license: "GFDL and CC BY-SA 3.0", url: "https://commons.wikimedia.org/wiki/File:Sohan_papdi2.JPG" }
-  ]
+  }
 };
 
-/* Resolve the FAQ entries whose answers come from the draft lines above. */
+/* Fill the two FAQ answers that reuse the shop details above. */
 (function () {
   TK.faq.forEach(function (item) {
-    if (item.a === null) {
-      if (item.q.indexOf("deliver") > -1) item.a = TK.deliveryNote + " Distance decides the charge, and we agree on it in the chat before sending.";
-      if (item.q.indexOf("visit") > -1) item.a = "Walk in during counter hours: " + TK.shopHours + ". For anything else, the chat is fastest.";
+    if (item.a !== null) return;
+    if (item.q.indexOf("deliver") > -1) {
+      item.a = TK.deliveryNote + " We confirm the charge before sending.";
+    }
+    if (item.q.indexOf("visit") > -1) {
+      item.a = "You can visit during counter hours: " + TK.shopHours + ". Message us first if you need a large order.";
     }
   });
 })();

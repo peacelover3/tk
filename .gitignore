@@ -1,0 +1,25 @@
+# Local design and research files
+.impeccable/
+
+# Operating system junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs, temp files and backups
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Dependencies (this site has none, but keep the folder out if one is added)
+node_modules/
+
+# Local secrets
+.env
+.env.*

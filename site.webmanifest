@@ -1,0 +1,19 @@
+{
+  "name": "TK SON HALWA",
+  "short_name": "TK Halwa",
+  "description": "Fresh Multani-style soan halwa, sold by the kilo.",
+  "lang": "en-PK",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5EEDF",
+  "theme_color": "#F5EEDF",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /* ============================================================
-   TK SON HALWA · Site renderer
-   Reads window.TK (assets/data.js) and fills the static pages.
-   No frameworks; works from plain file:// too.
+   TK SON HALWA · Page renderer
+   Reads window.TK from assets/data.js and fills the static pages.
+   No frameworks, no build step, works on any static host.
    ============================================================ */
 (function () {
   "use strict";
@@ -17,8 +17,11 @@
   function waLink(name, price) {
     var msg = TK.orderMessage
       .replace("{name}", name)
-      .replace("{price}", fmtPrice(price) + " per kg");
+      .replace("{price}", fmtPrice(price));
     return "https://wa.me/" + TK.whatsappTo + "?text=" + encodeURIComponent(msg);
+  }
+  function genericLink() {
+    return "https://wa.me/" + TK.whatsappTo + "?text=" + encodeURIComponent(TK.genericMessage);
   }
   function byId(id) {
     for (var i = 0; i < TK.halwas.length; i++) {
@@ -30,24 +33,22 @@
   function qs(sel) { return document.querySelector(sel); }
 
   /* ============================================================
-     HOME (index.html)
+     HOME
      ============================================================ */
   function paintHome() {
     var first = TK.halwas[0];
 
-    /* hero stamp + basics */
     fill(qs("#stamp-price"), fmtPrice(first.price));
     qs("#hero-order").href = waLink(first.name, first.price);
-    qs("#bar-order").href = waLink(first.name, first.price);
+    if (qs("#bar-order")) qs("#bar-order").href = genericLink();
 
     fill(qs("#facts"), TK.heroFacts.map(function (f) {
       return "<span>" + esc(f) + "</span>";
     }).join(""));
 
     fill(qs("#price-note"), esc(TK.priceNote));
-    fill(qs("#standin-note"), esc(TK.standinNote));
 
-    /* the price plate: ledger rows, deliberately not cards */
+    /* Menu rows */
     fill(qs("#plate-rows"), TK.halwas.map(function (h, i) {
       var pad = (i + 1) < 10 ? "0" + (i + 1) : "" + (i + 1);
       return '' +
@@ -72,17 +73,17 @@
         '</article>';
     }).join(""));
 
-    /* batch strip */
+    /* Batch strip */
     fill(qs("#strip"), TK.strip.map(function (s) {
       return '' +
         '<figure class="strip-cell">' +
           '<span class="stepnum">' + esc(s.n) + '</span>' +
-          '<img class="strip-photo" src="' + esc(s.img) + '" alt="' + esc(s.imgAlt) + '" decoding="async">' +
+          '<img class="strip-photo" src="' + esc(s.img) + '" alt="' + esc(s.imgAlt) + '" width="' + s.imgW + '" height="' + s.imgH + '" loading="lazy" decoding="async">' +
           '<figcaption><div class="strip-title">' + esc(s.title) + '</div><p class="strip-line">' + esc(s.line) + "</p></figcaption>" +
         "</figure>";
     }).join(""));
 
-    /* story */
+    /* Story */
     var st = TK.story;
     fill(qs("#story-h"), esc(st.title));
     fill(qs("#story-lead"), esc(st.lead));
@@ -91,7 +92,7 @@
       return '<div class="board-row"><span class="board-k">' + esc(b.k) + '</span><span class="board-v">' + esc(b.v) + "</span></div>";
     }).join(""));
 
-    /* steps */
+    /* Order steps */
     fill(qs("#steps"), TK.steps.map(function (s) {
       return '' +
         '<div class="step">' +
@@ -100,17 +101,7 @@
           '<p class="d">' + esc(s.d) + "</p>" +
         "</div>";
     }).join(""));
-    qs("#bill-order").href = waLink(first.name, first.price);
-
-    /* quotes */
-    fill(qs("#lines"), TK.quotes.map(function (q) {
-      return '' +
-        '<blockquote class="line">' +
-          '<span class="mark" aria-hidden="true">&ldquo;</span>' +
-          '<p class="q">' + esc(q.q) + "</p>" +
-          '<span class="who">' + esc(q.who) + "</span>" +
-        "</blockquote>";
-    }).join(""));
+    qs("#bill-order").href = genericLink();
 
     /* FAQ */
     fill(qs("#faq-list"), TK.faq.map(function (f) {
@@ -121,11 +112,11 @@
         "</details>";
     }).join(""));
 
-    paintChrome("index", first);
+    paintChrome("home", null);
   }
 
   /* ============================================================
-     DETAIL (halwa.html?id=)
+     DETAIL PAGE
      ============================================================ */
   function paintDetail() {
     var params = new URLSearchParams(window.location.search);
@@ -138,9 +129,9 @@
       if (grid) grid.hidden = true;
       var ob = qs("#others-block");
       if (ob) ob.hidden = true;
-      var och = qs("#crumbs");
-      if (och) och.hidden = true;
-      document.title = "TK SON HALWA";
+      var crumbs = qs("#crumbs");
+      if (crumbs) crumbs.hidden = true;
+      document.title = "Halwa not found | TK SON HALWA";
       paintChrome("halwa", null);
       return;
     }
@@ -151,7 +142,7 @@
   }
 
   function detailFill(h) {
-    document.title = h.name + " · TK SON HALWA";
+    document.title = h.name + " | TK SON HALWA";
     qst("#crumb-name", h.name);
     fill(qs("#d-name"), esc(h.name));
     fill(qs("#d-long"), esc(h.long));
@@ -163,7 +154,7 @@
     qst("#d-stamp", fmtPrice(h.price));
     qst("#d-per-price", fmtPrice(h.price));
     qs("#d-order").href = waLink(h.name, h.price);
-    qs("#bar-order").href = waLink(h.name, h.price);
+    qs("#bar-order").href = genericLink();
     qs("#d-call").href = "tel:+" + TK.whatsappTo;
     qst("#d-call-num", TK.whatsappDisplay);
 
@@ -173,9 +164,9 @@
       '<div class="spec-row"><span class="k">Shelf life</span><span class="v">' + esc(sp.shelfLife) + "</span></div>" +
       '<div class="spec-row"><span class="k">Ingredients</span><span class="v">' + esc(sp.ingredients) + "</span></div>" +
       '<div class="spec-row"><span class="k">Packing</span><span class="v">' + esc(sp.packing) + "</span></div>" +
-      '<div class="spec-row"><span class="k">Order path</span><span class="v">One WhatsApp message, we confirm the weight and total.</span></div>');
+      '<div class="spec-row"><span class="k">Order path</span><span class="v">One WhatsApp message. We confirm the weight and total.</span></div>');
 
-    /* more from the plate */
+    /* More halwas */
     fill(qs("#d-others"), TK.halwas.filter(function (x) { return x.id !== h.id; }).map(function (o) {
       return '' +
         '<a class="other-row" href="halwa.html?id=' + esc(o.id) + '">' +
@@ -184,17 +175,21 @@
         "</a>";
     }).join(""));
 
-    /* chips near the name */
     fill(qs("#d-chips"), h.chips.map(function (c) { return '<span class="chip">' + esc(c) + "</span>"; }).join(""));
   }
 
   function qst(sel, text) { var el = qs(sel); if (el) el.textContent = text; }
 
   /* ============================================================
-     Shared paint once both pages call it
+     SHARED CHROME AND STRUCTURED DATA
      ============================================================ */
   function paintChrome(page, h) {
-    /* footer contact */
+    var bar = qs("#bar-order");
+    if (bar) bar.href = h ? waLink(h.name, h.price) : genericLink();
+
+    var nfOrder = qs("#nf-order");
+    if (nfOrder) nfOrder.href = genericLink();
+
     var ftel = qs("#f-tel");
     if (ftel) { ftel.href = "tel:+" + TK.whatsappTo; ftel.textContent = TK.whatsappDisplay; }
     var fhrs = qs("#f-hours");
@@ -202,28 +197,66 @@
     var fdel = qs("#f-delivery");
     if (fdel) fdel.textContent = TK.deliveryNote;
     var fwa = qs("#f-wa");
-    if (fwa) {
-      fwa.href = h
-        ? waLink(h.name, h.price)
-        : "https://wa.me/" + TK.whatsappTo + "?text=" + encodeURIComponent("Hello there, I wanted to order TK SON HALWA from your website. Can I get more details on this?");
-    }
+    if (fwa) fwa.href = h ? waLink(h.name, h.price) : genericLink();
     var fy = qs("#f-year");
     if (fy) fy.textContent = new Date().getFullYear();
 
-    /* photo credits */
-    var cl = qs("#credits");
-    if (cl) {
-      fill(cl, TK.credits.map(function (c) {
-        return "<li>" + esc(c.file) + ": <a href=\"" + esc(c.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(c.src) +
-          "</a> by " + esc(c.author) + ", " + esc(c.license) + ", from Wikimedia Commons</li>";
-      }).join(""));
-    }
+    injectStructuredData();
+  }
+
+  function injectStructuredData() {
+    var old = document.getElementById("site-structured-data");
+    if (old) old.remove();
+
+    var assetBase = window.location.href.split("#")[0].split("?")[0];
+    var prices = TK.halwas.map(function (h) { return Number(h.price); });
+    var data = {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": TK.brand.name,
+      "description": "Family-run counter selling Multani-style soan halwa by the kilo.",
+      "telephone": TK.whatsappDisplay,
+      "priceRange": fmtPrice(Math.min.apply(null, prices)) + " to " + fmtPrice(Math.max.apply(null, prices)) + " per kg",
+      "servesCuisine": "Pakistani",
+      "paymentAccepted": "Cash",
+      "currenciesAccepted": "PKR",
+      "url": new URL("index.html", assetBase).href,
+      "image": new URL("assets/img/halwa-hero.jpg", assetBase).href,
+      "hasMenu": {
+        "@type": "Menu",
+        "hasMenuSection": [{
+          "@type": "MenuSection",
+          "name": "Halwa by the kilo",
+          "hasMenuItem": TK.halwas.map(function (h) {
+            return {
+              "@type": "MenuItem",
+              "name": h.name,
+              "description": h.short,
+              "image": new URL(h.img, assetBase).href,
+              "offers": {
+                "@type": "Offer",
+                "price": Number(h.price),
+                "priceCurrency": "PKR",
+                "availability": "https://schema.org/InStock"
+              }
+            };
+          })
+        }]
+      }
+    };
+
+    var script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "site-structured-data";
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
   }
 
   /* ---------- boot ---------- */
   document.addEventListener("DOMContentLoaded", function () {
-    var body = document.body;
-    if (body.getAttribute("data-page") === "home") paintHome();
-    if (body.getAttribute("data-page") === "halwa") paintDetail();
+    var page = document.body.getAttribute("data-page");
+    if (page === "home") paintHome();
+    else if (page === "halwa") paintDetail();
+    else paintChrome(page || "static", null);
   });
 })();

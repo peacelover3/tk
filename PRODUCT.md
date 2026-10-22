@@ -1,44 +1,54 @@
-# TK SON HALWA - Product Context
+# TK SON HALWA: product context
 
 ## What this is
-A small static showcase website for "TK SON HALWA", a Pakistani soan halwa
-(mithai) business based in Pakistan. The site displays the halwa varieties
-with per-kilogram prices. There is no online checkout: ordering happens over
-WhatsApp. Every "Order" action opens wa.me with a prefilled message to
-+92 336 5505467.
 
-## Audience and scene
-Local Pakistani customers, often on mobile data, many arriving from a
-WhatsApp forward or Instagram bio link. They scan a menu, check a price,
-and want to message the shop in one tap. English-only copy, simple tone.
-The site must feel like a real, trustworthy local sweet shop, not a
-startup template.
+A static website for TK SON HALWA, a family-run Pakistani shop selling Multani-style soan halwa by the kilogram. The site shows the menu with per-kilo prices and sends every order to WhatsApp. There is no cart, account or online payment.
+
+## Audience
+
+Local customers, mostly on mobile, arriving from a WhatsApp forward, Instagram bio link or a search result. They want to check the price, pick a halwa and message the shop quickly. The site should feel like a real neighbourhood sweet counter, not a startup template.
 
 ## Business model
-Inquiry-based: the visitor picks a halwa, taps order, WhatsApp opens with
-"Hello there, I wanted to order {name} from your website, it's {price} on
-website. Can I get more details on this?" (message template lives in
-data.js so the owner can edit it). Prices are per kilogram in PKR, easily
-editable by the owner in one data file.
+
+Inquiry-based ordering:
+
+1. Visitor checks the menu and price.
+2. Visitor taps Order.
+3. WhatsApp opens with a prefilled message naming the item and price.
+4. The shop confirms weight, delivery charge and total in the chat.
+5. Payment is cash on delivery or as agreed.
 
 ## Pages
-- index.html: home. Hero, menu grid (all halwas with prices), photo strip,
-  short story, how-to-order steps, a few customer lines, FAQ, footer.
-- halwa.html: one detail page template driven by ?id= - big photo,
-  description, price, specs (options, shelf life, ingredients, packaging),
-  and the WhatsApp order CTA.
 
-## Hard constraints from the owner
-- Static files only. No build step. Cheap free hosting.
-- All editable content (prices, names, photos, phone number, message
-  template) lives in assets/data.js so tiny changes never need code edits.
-- Written copy must read like a human local shop wrote it: no AI-tell
-  phrases, no em-dashes in any user-visible text, no fake credentials
-  (no invented awards, years, or certifications).
-- Photos: owner will replace with real shots of their halwa. Until then
-  use verified open-license photos, each swappable through data.js.
+- `index.html`: home, menu, process, story, ordering steps and FAQ.
+- `halwa.html?id=...`: one product detail page rendered from `assets/data.js`.
+- `404.html`: static not-found page.
+
+## Product constraints
+
+- Static files only. No build step, database or server code.
+- All shop-editable content lives in `assets/data.js`.
+- Prices are per kilogram in PKR.
+- The order flow must always land in WhatsApp, never in a form or checkout.
+- Copy should sound like a local shop wrote it: plain, specific and free of hype.
+- Photos live in `assets/img` and are served locally. Keep the set consistent and cleared for use.
+- Keep the number, prices, hours and delivery area easy to change without touching the layout.
 
 ## Success
-A first-time visitor understands within seconds: this is TK SON HALWA,
-they sell soan halwa by the kilo, prices are visible, and the big action
-is WhatsApp ordering. On mobile the order tap is effortless.
+
+A first-time visitor understands within seconds:
+
+- this is TK SON HALWA;
+- they sell soan halwa by the kilo;
+- the price is visible;
+- ordering takes one WhatsApp message.
+
+On a phone, the order button should be easy to reach and the menu should be readable without zooming.
+
+## Before launch
+
+- Confirm the WhatsApp number, prices, opening hours and delivery area.
+- Confirm permission to use every image in `assets/img`.
+- Check every order link opens the correct WhatsApp chat.
+- Check the site on a phone and on a desktop.
+- Add a real domain to canonical tags, social previews and a sitemap when it is available.

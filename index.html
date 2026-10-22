@@ -3,15 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TK SON HALWA | Soan halwa by the kilo, ordered on WhatsApp</title>
-<meta name="description" content="TK SON HALWA, a family counter for Multani-style soan halwa. Per-kilo prices in PKR, fresh wraps, and one WhatsApp message to order.">
+<title>TK SON HALWA | Fresh soan halwa by the kilo</title>
+<meta name="description" content="Fresh Multani-style soan halwa made in small batches every morning. Prices per kilo in PKR. Order in one WhatsApp message.">
 <meta name="theme-color" content="#F5EEDF">
-<meta property="og:title" content="TK SON HALWA | Soan halwa by the kilo">
-<meta property="og:description" content="Multani-style soan halwa sold by the kilo. Prices printed plain, ordered in one WhatsApp message.">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TK SON HALWA">
+<meta property="og:locale" content="en_PK">
+<meta property="og:title" content="TK SON HALWA | Fresh soan halwa by the kilo">
+<meta property="og:description" content="Fresh Multani-style soan halwa made in small batches every morning. Prices per kilo in PKR. Order in one WhatsApp message.">
 <meta property="og:image" content="assets/img/halwa-hero.jpg">
+<meta property="og:image:alt" content="Round walnut-topped soan halwa">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TK SON HALWA | Fresh soan halwa by the kilo">
+<meta name="twitter:description" content="Fresh Multani-style soan halwa made in small batches every morning. Prices per kilo in PKR. Order in one WhatsApp message.">
+<meta name="twitter:image" content="assets/img/halwa-hero.jpg">
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/BricolageGrotesque.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Figtree.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/halwa-hero.jpg" fetchpriority="high">
 <link rel="stylesheet" href="assets/styles.css">
 <script src="assets/data.js" defer></script>
 <script src="assets/site.js" defer></script>
@@ -30,12 +41,12 @@
       <span class="brand-name">TK SON HALWA</span>
     </a>
     <nav class="bar-nav" aria-label="Site">
-      <a href="#plate">Price plate</a>
-      <a href="#batch">The batch</a>
+      <a href="#plate">Menu and prices</a>
+      <a href="#batch">How we make it</a>
       <a href="#order">How to order</a>
       <a href="#faq">Questions</a>
     </nav>
-    <a class="pill pill-ink" id="bar-order" href="https://wa.me/923365505467?text=Hello%20there%2C%20I%20wanted%20to%20order%20TK%20SON%20HALWA%20from%20your%20website.%20Can%20I%20get%20more%20details%20on%20this%3F">
+    <a class="pill pill-ink" id="bar-order" href="https://wa.me/923365505467?text=Hello%2C%20I%20want%20to%20order%20TK%20SON%20HALWA.%20Please%20share%20the%20menu%2C%20prices%20and%20delivery%20details.">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.6.7 1.9.8 2 .1.2.1.3 0 .5l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.4 1.3Z" fill="currentColor"/></svg>
       <span>Order <span class="w-hide">on WhatsApp</span></span>
     </a>
@@ -43,27 +54,27 @@
 </header>
 
 <noscript>
-  <div class="nojs">Prices and the full menu need JavaScript. To order right now, WhatsApp us at <a href="https://wa.me/923365505467">+92 336 5505467</a>.</div>
+  <div class="nojs">To see the menu or order right now, message us on WhatsApp at <a href="https://wa.me/923365505467">+92 336 5505467</a>.</div>
 </noscript>
 
 <main id="main">
 
-  <!-- ================= HERO ================= -->
+  <!-- Hero -->
   <section class="hero wrap" aria-labelledby="hero-h">
     <div class="hero-grid">
       <div>
-        <p class="kicker"><span>Soan halwa, Multani style</span></p>
-        <h1 class="display"><span>One copper degh <span class="nb">a day,</span></span><span>sold by the <span class="nb">kilo, fresh.</span></span></h1>
-        <p class="sub">Multani-style soan halwa from TK SON HALWA. Sold by the kilo with the price printed plain, and your order is one WhatsApp message away.</p>
+        <p class="kicker"><span>Multani style, made daily</span></p>
+        <h1 class="display" id="hero-h"><span>Fresh soan halwa, <span class="nb">sold by the kilo.</span></span></h1>
+        <p class="sub">Made in small batches in a copper degh every morning. Choose what you want, send one WhatsApp message, and we will confirm the weight, delivery and total.</p>
         <div class="cta-row">
-          <a class="pill pill-ink" id="hero-order" href="https://wa.me/923365505467?text=Hello%20there%2C%20I%20wanted%20to%20order%20TK%20SON%20HALWA%20from%20your%20website.%20Can%20I%20get%20more%20details%20on%20this%3F">
+          <a class="pill pill-ink" id="hero-order" href="https://wa.me/923365505467?text=Hello%2C%20I%20want%20to%20order%20TK%20SON%20HALWA.%20Please%20share%20the%20menu%2C%20prices%20and%20delivery%20details.">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.6.7 1.9.8 2 .1.2.1.3 0 .5l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.4 1.3Z" fill="currentColor"/></svg>
             <span>Order <span class="w-hide">on WhatsApp</span></span>
           </a>
-          <a class="pill pill-ghost" href="#plate"><span>See the price plate</span></a>
+          <a class="pill pill-ghost" href="#plate"><span>See menu and prices</span></a>
         </div>
         <div class="facts" id="facts">
-          <span>Made every morning</span><span>Sold by the kilo</span><span>Ordered in one chat</span>
+          <span>Made every morning</span><span>Sold by the kilo</span><span>Order on WhatsApp</span>
         </div>
       </div>
 
@@ -75,112 +86,101 @@
         </svg>
         <div class="disc-rim">
           <div class="disc-clip">
-            <img class="disc-img" src="assets/img/halwa-hero.jpg" alt="Round walnut-topped soan halwa disc seen from above" width="1200" height="1202" decoding="async">
+            <img class="disc-img" src="assets/img/halwa-hero.jpg" alt="Round walnut-topped soan halwa disc seen from above" width="1200" height="1202" fetchpriority="high" decoding="async">
           </div>
         </div>
-        <div class="stamp" role="figure" aria-label="Today's price per kilogram">
+        <div class="stamp" role="figure" aria-label="Price per kilogram">
           <span class="stamp-price" id="stamp-price">Rs 1,200</span>
           <span class="stamp-per">Per kilogram</span>
         </div>
-        <p class="disc-caption">Walnut soan, straight off the disc onto the weighing plate.</p>
+        <p class="disc-caption">Walnut soan from the morning batch.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= PRICE PLATE ================= -->
+  <!-- Menu and prices -->
   <section class="plate wrap" id="plate" aria-labelledby="plate-h">
     <div class="plate-head">
-      <p class="overline">The price plate</p>
+      <p class="overline">Menu and prices</p>
       <div class="section-head">
-        <h2 class="h2" id="plate-h">The halwas, by the kilo.</h2>
-        <p class="side-note" id="price-note">All prices are per kilogram, in Pakistani rupees. The final count is confirmed on WhatsApp before anything is packed.</p>
+        <h2 class="h2" id="plate-h">Our halwas, priced per kilo.</h2>
+        <p class="side-note" id="price-note">All prices are per kilogram in Pakistani rupees. We confirm the final weight, delivery charge and total on WhatsApp before packing.</p>
       </div>
       <div class="ledger-rule" aria-hidden="true"></div>
     </div>
     <div id="plate-rows">
-      <noscript><p>To see the full menu, enable JavaScript, or order directly on WhatsApp at +92 336 5505467.</p></noscript>
+      <noscript><p>Message us on WhatsApp at <a href="https://wa.me/923365505467">+92 336 5505467</a> and we will send you today's menu and prices.</p></noscript>
     </div>
   </section>
 
-  <!-- ================= THE BATCH ================= -->
+  <!-- How we make it -->
   <section class="batch" id="batch" aria-labelledby="batch-h">
     <div class="wrap">
-      <p class="overline">From the degh</p>
+      <p class="overline">From the copper degh</p>
       <div class="section-head">
-        <h2 class="h2" id="batch-h">One batch, morning to plate.</h2>
-        <p class="side-note" id="standin-note">Station photos for now: our own degh shots replace these through data.js.</p>
+        <h2 class="h2" id="batch-h">From the degh to the weighing plate.</h2>
+        <p class="side-note">Small batches, made by hand, and sold the same day.</p>
       </div>
       <div class="strip" id="strip"></div>
     </div>
   </section>
 
-  <!-- ================= STORY ================= -->
+  <!-- Story -->
   <section class="story wrap" aria-labelledby="story-h">
     <div class="story-grid">
       <div>
-        <p class="overline" id="story-h">The shop</p>
-        <p class="story-lead" id="story-lead">TK SON HALWA is a small family counter that keeps one copper degh of soan halwa going every morning.</p>
-        <p class="story-body" id="story-body">Nothing waits in a cold store.</p>
+        <p class="overline" id="story-h">Our shop</p>
+        <p class="story-lead" id="story-lead">TK SON HALWA is a family-run counter. We make Multani-style soan halwa in a copper degh each morning and sell it by the kilo.</p>
+        <p class="story-body" id="story-body">We do not keep stock in cold storage. When the day's batch is finished, we take orders for the next morning. Message us and we will tell you what is ready.</p>
       </div>
       <div class="board" aria-label="How the counter works">
         <div class="board-title">On the counter</div>
         <div id="story-board">
           <div class="board-row"><span class="board-k">Degh</span><span class="board-v">one, copper</span></div>
-          <div class="board-row"><span class="board-k">Batch</span><span class="board-v">before dawn</span></div>
+          <div class="board-row"><span class="board-k">Batch</span><span class="board-v">every morning</span></div>
           <div class="board-row"><span class="board-k">Sold by</span><span class="board-v">the kilo</span></div>
-          <div class="board-row"><span class="board-k">Price</span><span class="board-v">printed, no games</span></div>
+          <div class="board-row"><span class="board-k">Price</span><span class="board-v">set per kilo</span></div>
+          <div class="board-row"><span class="board-k">Packing</span><span class="board-v">fresh wrap and boxes</span></div>
+          <div class="board-row"><span class="board-k">Stock</span><span class="board-v">made fresh, sold same day</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= HOW TO ORDER ================= -->
+  <!-- How to order -->
   <section class="wrap order-wrap" id="order" aria-labelledby="order-h">
     <p class="overline">How to order</p>
     <div class="section-head">
-      <h2 class="h2" id="order-h">Four taps and the halwa is yours.</h2>
+      <h2 class="h2" id="order-h">Ordering takes one message.</h2>
     </div>
     <div class="order-steps" id="steps">
-      <div class="step"><div class="n" aria-hidden="true">01</div><div class="t">Walk the price plate</div><p class="d">Scroll the list above, pick your halwa and your kilo.</p></div>
-      <div class="step"><div class="n" aria-hidden="true">02</div><div class="t">Tap order</div><p class="d">WhatsApp opens with your choice already typed. Send it.</p></div>
-      <div class="step"><div class="n" aria-hidden="true">03</div><div class="t">We confirm the count</div><p class="d">Weight, delivery charge and total agreed in the chat.</p></div>
-      <div class="step"><div class="n" aria-hidden="true">04</div><div class="t">Halwa out the door</div><p class="d">You pay when it arrives, cash or whatever we agreed.</p></div>
+      <div class="step"><div class="n" aria-hidden="true">01</div><div class="t">Choose your halwa</div><p class="d">Check the menu and note the quantity you need.</p></div>
+      <div class="step"><div class="n" aria-hidden="true">02</div><div class="t">Send a WhatsApp message</div><p class="d">Tap Order and the message opens ready to send.</p></div>
+      <div class="step"><div class="n" aria-hidden="true">03</div><div class="t">We confirm your order</div><p class="d">We reply with the weight, delivery charge and total.</p></div>
+      <div class="step"><div class="n" aria-hidden="true">04</div><div class="t">Receive your halwa</div><p class="d">Pay cash on delivery, or as agreed in the chat.</p></div>
     </div>
     <div class="order-bill">
-      <p>No apps and no forms: your order is one message, answered by the counter itself.</p>
-      <a class="pill pill-saff" id="bill-order" href="https://wa.me/923365505467?text=Hello%20there%2C%20I%20wanted%20to%20order%20TK%20SON%20HALWA%20from%20your%20website.%20Can%20I%20get%20more%20details%20on%20this%3F">
+      <p>No accounts, no checkout forms. Your order is handled directly by the shop.</p>
+      <a class="pill pill-saff" id="bill-order" href="https://wa.me/923365505467?text=Hello%2C%20I%20want%20to%20order%20TK%20SON%20HALWA.%20Please%20share%20the%20menu%2C%20prices%20and%20delivery%20details.">
         <span>Order <span class="w-hide">on WhatsApp</span></span>
       </a>
     </div>
   </section>
 
-  <!-- ================= CUSTOMER LINES ================= -->
-  <section class="wrap lines" aria-labelledby="lines-h">
-    <p class="overline">Regulars say</p>
-    <div class="section-head">
-      <h2 class="h2" id="lines-h">Lines we keep hearing.</h2>
-    </div>
-    <div class="lines-grid" id="lines">
-      <blockquote class="line"><span class="mark" aria-hidden="true">&ldquo;</span><p class="q">Walnut soan that tastes like the shops we remember from Multan, and it travels without falling apart.</p><span class="who">Atif, regular customer</span></blockquote>
-      <blockquote class="line"><span class="mark" aria-hidden="true">&ldquo;</span><p class="q">Five kilos for Eid, packed proper and delivered on time. The whole shop lives in one WhatsApp chat.</p><span class="who">Sana, Eid order</span></blockquote>
-      <blockquote class="line"><span class="mark" aria-hidden="true">&ldquo;</span><p class="q">The chocolate one never survives till morning.</p><span class="who">Bilal, family dinners</span></blockquote>
-    </div>
-  </section>
-
-  <!-- ================= FAQ ================= -->
+  <!-- FAQ -->
   <section class="wrap faq" id="faq" aria-labelledby="faq-h">
     <p class="overline">Questions</p>
     <div class="section-head">
       <h2 class="h2" id="faq-h">What people ask before ordering.</h2>
     </div>
     <div class="faq-list" id="faq-list">
-      <noscript><p>Questions and answers need JavaScript. For anything else, WhatsApp us at +92 336 5505467.</p></noscript>
+      <noscript><p>Have a question? Message us on WhatsApp at <a href="https://wa.me/923365505467">+92 336 5505467</a>.</p></noscript>
     </div>
   </section>
 
 </main>
 
-<!-- ================= FOOTER ================= -->
+<!-- Footer -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -192,36 +192,30 @@
           </svg>
           <span class="brand-name">TK SON HALWA</span>
         </a>
-        <p class="footer-about">A small family counter for Multani-style soan halwa, made each morning and sold by the kilo.</p>
+        <p class="footer-about">A family-run counter for Multani-style soan halwa, made each morning and sold by the kilo.</p>
       </div>
       <div>
         <h2 class="footer-k">On this page</h2>
         <ul class="footer-list">
-          <li><a href="#plate">The price plate</a></li>
-          <li><a href="#batch">One batch, morning to plate</a></li>
+          <li><a href="#plate">Menu and prices</a></li>
+          <li><a href="#batch">How we make it</a></li>
           <li><a href="#order">How to order</a></li>
           <li><a href="#faq">Questions</a></li>
         </ul>
       </div>
       <div>
-        <h2 class="footer-k">The counter</h2>
+        <h2 class="footer-k">The shop</h2>
         <ul class="footer-list">
           <li class="footer-contact"><a id="f-tel" href="tel:+923365505467">+92 336 5505467</a></li>
-          <li class="footer-contact" id="f-hours">Open daily, 9 in the morning till 9 at night</li>
-          <li class="footer-contact" id="f-delivery">Delivery note</li>
+          <li class="footer-contact" id="f-hours">Open daily, 9:00 am to 9:00 pm</li>
+          <li class="footer-contact" id="f-delivery">We deliver in our area and nearby towns. The exact charge depends on your address, and we agree it in the chat before sending.</li>
         </ul>
-        <a class="pill pill-ghost" id="f-wa" href="https://wa.me/923365505467?text=Hello%20there%2C%20I%20wanted%20to%20order%20TK%20SON%20HALWA%20from%20your%20website.%20Can%20I%20get%20more%20details%20on%20this%3F" style="font-size:14px;padding:10px 16px">
+        <a class="pill pill-ghost" id="f-wa" href="https://wa.me/923365505467?text=Hello%2C%20I%20want%20to%20order%20TK%20SON%20HALWA.%20Please%20share%20the%20menu%2C%20prices%20and%20delivery%20details." style="font-size:14px;padding:10px 16px">
           <span>Message <span class="w-hide">on WhatsApp</span></span>
         </a>
       </div>
     </div>
-    <div class="credits">
-      <h2 class="credits-title">Photo credits (stand-in photography from Wikimedia Commons)</h2>
-      <ul class="credits-list" id="credits">
-        <li>Photo credits need JavaScript; all images are open-license stand-ins, see the source files for attribution.</li>
-      </ul>
-    </div>
-    <div class="credits-bottom">
+    <div class="footer-bottom">
       <span>Prices are per kilogram, in PKR. Ordering happens on WhatsApp.</span>
       <span>&copy; <span id="f-year">2026</span> TK SON HALWA</span>
     </div>
